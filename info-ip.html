@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAddressNow - IP Information</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img src="icon.png" alt="IPAddressNow.com Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="view-ip.html"><i class="bi bi-bullseye"></i> View IP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ip-info.html"><i class="bi bi-info-circle-fill"></i> Info IP</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h3>IP Information</h3>
+        <button class="toggle-button" onclick="toggleContent('q1')">What is an IP address?</button>
+        <div id="q1" class="toggle-content">
+            An IP address is a unique numerical identifier assigned to each device connected to a computer network that uses the Internet Protocol for communication.
+        </div>
+        <button class="toggle-button mt-3" onclick="toggleContent('q2')">What is a public IP address?</button>
+        <div id="q2" class="toggle-content">
+            A public IP address is an address that is globally unique and accessible over the internet. It is assigned to devices directly connected to the internet.
+        </div>
+        <button class="toggle-button mt-3" onclick="toggleContent('q3')">What is a private IP address?</button>
+        <div id="q3" class="toggle-content">
+            A private IP address is used within a private network and is not accessible from the internet. It is typically used for internal communication within a network.
+        </div>
+        <button class="toggle-button mt-3" onclick="toggleContent('q4')">What is the difference between IPv4 and IPv6?</button>
+        <div id="q4" class="toggle-content">
+            IPv4 and IPv6 are versions of the Internet Protocol. IPv4 uses 32-bit addresses, while IPv6 uses 128-bit addresses, allowing for more possible unique addresses.
+        </div>
+        <button class="toggle-button mt-3" onclick="toggleContent('q5')">How is an IP address assigned?</button>
+        <div id="q5" class="toggle-content">
+            IP addresses can be assigned statically (manually) or dynamically (automatically) through protocols like DHCP (Dynamic Host Configuration Protocol).
+        </div>
+ <button class="toggle-button mt-3" onclick="toggleContent('q6')">What is subnetting in IP networking?</button>
+ <div id="q6" class="toggle-content">
+            IP addresses can be assigned statically (manually) or dynamically (automatically) through protocols like DHCP (Dynamic Host Configuration Protocol).
+        </div>
+
+        <button class="toggle-button mt-3" onclick="toggleContent('q7')">What is IP spoofing and how does it affect network security?</button>
+        <button class="toggle-button mt-3" onclick="toggleContent('q8')">What is a loopback IP address?</button>
+        <button class="toggle-button mt-3" onclick="toggleContent('q9')">What is DHCP (Dynamic Host Configuration Protocol) and how does it work?</button>
+        <button class="toggle-button mt-3" onclick="toggleContent('q10')">What is CIDR (Classless Inter-Domain Routing) and how does it impact IP addressing?</button>
+        <button class="toggle-button mt-3" onclick="toggleContent('q11')">What is NAT (Network Address Translation) and why is it used?</button>
+        <button class="toggle-button mt-3" onclick="toggleContent('q12')">What is a default gateway and its role in IP networking?</button>
+        <button class="toggle-button mt-3" onclick="toggleContent('q13')">What are the common IP address classes?</button>
+        <button class="toggle-button mt-3" onclick="toggleContent('q14')">What is IP forwarding and when is it used?</button>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="footer-info text-left">
+                    <a href="privacy.html" class="footer-link">Privacy</a> |
+                    <a href="terms.html" class="footer-link">Terms of Use</a>
+                </div>
+                <p class="text-left">&copy; IPAddressNow.com - 2024</p>
+            </div>
+  <div class="col-md-6">
+                  <div class="footer-links text-right">
+                      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#languageModal">
+                          Select Language
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-dark text-light">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="languageModalLabel">Select Language</h5>
+                  <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <ul>
+                      <li><a href="index.html" class="btn btn-dark active" id="englishButton">English</a></li>
+                      <li><a href="es/index.html" class="btn btn-dark" id="spanishButton">Español</a></li>
+                      <li><a href="jp/index.html" class="btn btn-dark" disabled>日本語</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script>
+    function toggleContent(id) {
+        var element = document.getElementById(id);
+        if (element.style.display === "block") {
+            element.style.display = "none";
+        } else {
+            element.style.display = "block";
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

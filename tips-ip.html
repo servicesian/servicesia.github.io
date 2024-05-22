@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAddressNow - Tips</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/darcula.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .info {
+    margin-bottom: 20px;
+  }
+
+  .code-container {
+    background-color: #333;
+    border-radius: 5px;
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    position: relative; /* Añadimos posición relativa */
+  }
+
+  pre {
+    margin: 0;
+    color: #f47;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* Añadimos posición absoluta */
+    top: 20px; /* Ajustamos la posición desde arriba */
+    right: 20px; /* Ajustamos la posición desde la derecha */
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .icon {
+    margin-right: 10px;
+  }
+
+  .separator {
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="info">
+        <h1><i class="fas fa-code icon"></i>IPAddressNow - Tips</h1>
+        <p>Below are some useful commands for checking IP information on various operating systems.</p>
+    </div>
+
+    <div class="code-container">
+        <h2><i class="fab fa-windows icon"></i>Windows Commands</h2>
+        <div>
+            <p><strong>Command to check IP configuration:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">ipconfig</code></pre>
+            <p>This command displays the IP configuration for all network interfaces on a Windows system.</p>
+            <button class="copy-btn" onclick="copyCommand('ipconfig')">Copy</button>
+        </div>
+
+        <div class="separator"></div>
+
+        <div>
+            <p><strong>Command to release IP address:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">ipconfig /release</code></pre>
+            <p>This command releases the IP address for all network interfaces on a Windows system.</p>
+            <button class="copy-btn" onclick="copyCommand('ipconfig /release')">Copy</button>
+        </div>
+
+        <div class="separator"></div>
+
+        <div>
+            <p><strong>Command to renew IP address:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">ipconfig /renew</code></pre>
+            <p>This command renews the IP address for all network interfaces on a Windows system.</p>
+            <button class="copy-btn" onclick="copyCommand('ipconfig /renew')">Copy</button>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="code-container">
+        <h2><i class="fab fa-apple icon"></i>macOS Commands</h2>
+        <div>
+            <p><strong>Command to check network interface details:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">ifconfig</code></pre>
+            <p>This command displays the configuration details of network interfaces on a Mac system.</p>
+            <button class="copy-btn" onclick="copyCommand('ifconfig')">Copy</button>
+        </div>
+
+        <div class="separator"></div>
+
+        <div>
+            <p><strong>Command to show IP address:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">ipconfig getifaddr en0</code></pre>
+            <p>This command shows the IP address of the specified network interface on a Mac system.</p>
+            <button class="copy-btn" onclick="copyCommand('ipconfig getifaddr en0')">Copy</button>
+        </div>
+
+        <div class="separator"></div>
+
+        <div>
+            <p><strong>Command to flush DNS cache:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">sudo killall -HUP mDNSResponder</code></pre>
+            <p>This command flushes the DNS cache on a Mac system.</p>
+            <button class="copy-btn" onclick="copyCommand('sudo killall -HUP mDNSResponder')">Copy</button>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="code-container">
+        <h2><i class="fab fa-linux icon"></i>Linux Commands</h2>
+        <div>
+            <p><strong>Command to show IP address information:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">ip a</code></pre>
+            <p>This command displays the IP addresses associated with all network interfaces on a Linux system.</p>
+            <button class="copy-btn" onclick="copyCommand('ip a')">Copy</button>
+        </div>
+
+        <div class="separator"></div>
+
+        <div>
+            <p><strong>Command to show DNS information:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">cat /etc/resolv.conf</code></pre>
+            <p>This command displays the DNS server information on a Linux system.</p>
+            <button class="copy-btn" onclick="copyCommand('cat /etc/resolv.conf')">Copy</button>
+        </div>
+
+        <div class="separator"></div>
+
+        <div>
+            <p><strong>Command to show routing table:</strong></p>
+            <pre><code class="bash" style="color: #ff00ff;">ip route</code></pre>
+                               <p>This command displays the routing table on a Linux system.</p>
+                               <button class="copy-btn" onclick="copyCommand('ip route')">Copy</button>
+                           </div>
+
+                           <div class="separator"></div>
+
+                           <div>
+                               <p><strong>Command to show network statistics:</strong></p>
+                               <pre><code class="bash" style="color: #ff00ff;">netstat -s</code></pre>
+                               <p>This command displays network statistics on a Linux system.</p>
+                               <button class="copy-btn" onclick="copyCommand('netstat -s')">Copy</button>
+                           </div>
+
+                           <div class="separator"></div>
+
+                           <div>
+                               <p><strong>Command to show active internet connections:</strong></p>
+                               <pre><code class="bash" style="color: #ff00ff;">netstat -atn</code></pre>
+                               <p>This command displays active internet connections on a Linux system.</p>
+                               <button class="copy-btn" onclick="copyCommand('netstat -atn')">Copy</button>
+                           </div>
+                       </div>
+                   </div>
+
+                   <script>
+                   function copyCommand(command) {
+                       navigator.clipboard.writeText(command)
+                       .then(() => {
+                           alert('Command copied to clipboard: ' + command);
+                       })
+                       .catch(err => {
+                           console.error('Error copying command: ', err);
+                       });
+                   }
+                   </script>
+
+                   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+                   <script>hljs.highlightAll();</script>
+                   </body>
+                   </html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPAddressNow - View IP</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="icon" type="image/png" href="icon.png">
+
+<style>
+.content-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px; /* Añadimos margen superior */
+    margin-bottom: 20px; /* Añadimos margen inferior */
+}
+
+.modern-card {
+    background-color: #222; /* Fondo oscuro */
+    border: 1px solid #444; /* Borde oscuro */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #fff; /* Texto blanco */
+    width: calc(25% - 20px); /* Calcula el ancho para que haya margen entre los elementos */
+    max-width: 300px; /* Ancho máximo para evitar que las tarjetas se hagan demasiado anchas */
+}
+
+.modern-card h2 {
+    color: #007bff; /* Color azul para los títulos */
+}
+
+
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #1c1c1c;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+  }
+
+  .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+
+  .navbar {
+      background-color: #333;
+  }
+
+  .navbar-brand img {
+      width: 120px;
+      height: auto;
+      margin-right: 10px;
+  }
+
+  .navbar-brand {
+      color: #fff;
+  }
+
+  .navbar-toggler,
+  .navbar-nav .nav-link {
+      color: #fff;
+  }
+
+  .navbar-nav .nav-link:hover {
+      color: #007bff;
+  }
+
+  .card {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+  }
+
+  .toggle-button {
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  .toggle-button:hover {
+      background-color: #0056b3;
+  }
+
+  .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+  }
+
+  .footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+  }
+
+  .footer a:hover {
+      text-decoration: underline;
+  }
+
+  .ip-address {
+      font-size: 24px;
+  }
+
+  .ipv6-address {
+      font-size: 18px;
+  }
+
+  .footer-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+  }
+
+  .footer-links div {
+      margin-right: 20px;
+  }
+
+  .toggle-content {
+      display: none;
+  }
+
+  .separator {
+      border-top: 2px solid transparent;
+      margin: 50px 0;
+  }
+
+  .info-card {
+      background-color: #222;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img src="icon.png" alt="IPAddressNow.com Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="view-ip.html"><i class="bi bi-bullseye"></i> View IP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info-ip.html"><i class="bi bi-info-circle-fill"></i> Info IP</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="info-card">
+        <div class="ip-address text-center mt-5 mb-3" id="ip-address"></div>
+        <div class="ipv6-address text-center mb-3" id="ipv6-address"></div>
+        <div class="location text-center mb-3" id="location"></div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="card">
+        <button class="toggle-button" onclick="toggleContent('q1')">What is an IP Address?</button>
+        <div id="q1" class="toggle-content">
+          An IP address, which stands for Internet Protocol address, is a unique string of numbers separated by periods or colons that identifies each computer using the Internet Protocol to communicate over a network.
+        </div>
+        <button class="toggle-button mt-3" onclick="toggleContent('q2')">What is a public IP Address?</button>
+        <div id="q2" class="toggle-content">
+          A public IP address is an address that is globally unique and accessible over the internet.
+        </div>
+        <button class="toggle-button mt-3" onclick="toggleContent('q3')">What is a private IP Address?</button>
+        <div id="q3" class="toggle-content">
+          A private IP address is an address used within a private network, such as a local area network (LAN) or a home network.
+        </div>
+    </div>
+    <div id="moreInfo" class="text-center mt-3">
+        <a href="info-ip.html" class="btn btn-primary">More Info</a>
+    </div>
+</div>
+<h1 class="text-center mt-5 mb-3">Explore IPAddressNow</h1>
+
+<div class="content-section d-flex justify-content-center">
+    <div class="modern-card mx-2">
+        <h2>Your IP Address Checkpoint</h2>
+        <p>Check your IP address here. IPAddressNow offers a convenient way to check your IP address. Simply enter the address and get instant results. It's the first step in understanding your online presence.</p>
+        <i class="bi bi-search"></i>
+    </div>
+    <div class="modern-card mx-2">
+        <h2>IP Address Insights</h2>
+        <p>Discover valuable insights about IP addresses. Explore IPAddressNow's insights to learn more about IP addresses and how they impact your online experience. Gain a deeper understanding of your digital footprint.</p>
+        <i class="bi bi-lightbulb"></i>
+    </div>
+    <div class="modern-card mx-2">
+        <h2>Expert IP Address Tips</h2>
+        <p>Get expert tips and tricks for managing IP addresses. IPAddressNow provides expert advice to help you manage your IP addresses effectively. Learn how to protect your privacy and optimize your network security.</p>
+        <i class="bi bi-tools"></i>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="footer-info text-left">
+                    <a href="privacy.html" class="footer-link">Privacy</a> |
+                    <a href="terms.html" class="footer-link">Terms of Use</a>
+                </div>
+                <p class="text-left">&copy; IPAddressNow.com - 2024</p>
+            </div>
+            <div class="col-md-6">
+                <div class="footer-links text-right">
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#languageModal">
+                        Select Language
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title" id="languageModalLabel">Select Language</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><a href="index.html" class="btn btn-dark active" id="englishButton">English</a></li>
+                    <li><a href="es/index.html" class="btn btn-dark" id="spanishButton">Español</a></li>
+                    <li><a href="jp/index.html" class="btn btn-dark" disabled>日本語</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleContent(id) {
+        var element = document.getElementById(id);
+        if (element.style.display === "block") {
+            element.style.display = "none";
+        } else {
+            element.style.display = "block";
+        }
+    }
+
+    async function getIPDetails() {
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            document.getElementById('ip-address').innerText = `Your IPv4 Address is: ${data.ip}`;
+            fetchIPv6(data.ip);
+            fetchLocation(data.ip);
+        } catch (error) {
+            console.error('Error fetching IP Details:', error);
+        }
+    }
+
+    async function fetchIPv6(ip) {
+        try {
+            const response = await fetch(`https://api64.ipify.org?format=json&ipAddress=${ip}`);
+            const data = await response.json();
+            document.getElementById('ipv6-address').innerText = `Your IPv6 Address is: ${data.ip}`;
+        } catch (error) {
+            console.error('Error fetching IPv6 Address:', error);
+        }
+    }
+
+    async function fetchLocation(ip) {
+        try {
+            const response = await fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`);
+            const data = await response.json();
+            document.getElementById('location').innerText = `Your Location: ${data.city}, ${data.region}, ${data.country}`;
+        } catch (error) {
+            console.error('Error fetching location:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getIPDetails();
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
