@@ -262,50 +262,31 @@
 </div>
 
 <script>
-    function toggleContent(id) {
-        var element = document.getElementById(id);
-        if (element.style.display === "block") {
-            element.style.display = "none";
-        } else {
-            element.style.display = "block";
-        }
+function toggleContent(id) {
+    var element = document.getElementById(id);
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
     }
+}
 
-    async function getIPDetails() {
-        try {
-            const response = await fetch('https://api.ipify.org?format=json');
-            const data = await response.json();
-            document.getElementById('ip-address').innerText = `Your IPv4 Address is: ${data.ip}`;
-            fetchIPv6(data.ip);
-            fetchLocation(data.ip);
-        } catch (error) {
-            console.error('Error fetching IP Details:', error);
-        }
+async function getIPDetails() {
+    try {
+        const response = await fetch('/ip'); // Cambia la URL a la ruta de tu servidor
+        const data = await response.json();
+        document.getElementById('ip-address').innerText = `Your IPv4 Address is: ${data.ip}`;
+        document.getElementById('ipv6-address').innerText = `Your IPv6 Address is: ${data.ipv6}`;
+        document.getElementById('location').innerText = `Your Location: ${data.location}`;
+    } catch (error) {
+        console.error('Error fetching IP Details:', error);
     }
+}
 
-    async function fetchIPv6(ip) {
-        try {
-            const response = await fetch(`https://api64.ipify.org?format=json&ipAddress=${ip}`);
-            const data = await response.json();
-            document.getElementById('ipv6-address').innerText = `Your IPv6 Address is: ${data.ip}`;
-        } catch (error) {
-            console.error('Error fetching IPv6 Address:', error);
-        }
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    getIPDetails();
+});
 
-    async function fetchLocation(ip) {
-        try {
-            const response = await fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`);
-            const data = await response.json();
-            document.getElementById('location').innerText = `Your Location: ${data.city}, ${data.region}, ${data.country}`;
-        } catch (error) {
-            console.error('Error fetching location:', error);
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        getIPDetails();
-    });
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
